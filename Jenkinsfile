@@ -7,11 +7,11 @@ node {
     {
         stage('checkout') 
             {
-                git 'https://github.com/ashishb096/maven-samples.git'
+                git 'https://github.com/ashishb096/maven-samples.git sonar:sonar -Dsonar.projectKey=sonar'
             }
         stage('compiling,testing,verify') 
             {
-                bat 'mvn clean compile verify package'
+                bat 'mvn clean compile verify package sonar:sonar -Dsonar.projectKey=sonar'
                
             }
         stage('archiving') 
