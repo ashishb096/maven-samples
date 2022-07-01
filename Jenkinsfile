@@ -5,7 +5,7 @@ node {
   stage('SonarQube Analysis') {
     def mvn = tool 'maven';
     withSonarQubeEnv() {
-      bat 'mvn clean compile verify' sonar:sonar -Dsonar.projectKey=sonar"
+      bat 'mvn clean verify' sonar:sonar -Dsonar.projectKey=sonar"
     }
   }
 }
